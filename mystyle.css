@@ -1,0 +1,42 @@
+
+.flex-container {
+    min-height: 950px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+.flex-container > div {
+    outline-color: rgb(219, 154, 70);
+    outline-width: 3px;
+    outline-style: groove;
+}
+
+.Click {
+    min-width: 500px;
+    margin:20px;
+    text-align: center;
+}
+.stats {
+    min-width: 300px;
+    margin:20px;
+  }
+  .Shop {
+    min-width: 300px;
+    margin:20px;
+  }
+.shop > button{
+    outline-color: black;
+    outline-width: 0px;
+    outline-style: groove;
+    background-color: gainsboro;
+    align-self: left;
+}
+  .Info {
+    min-width: 400px;
+    margin:20px;
+    text-align: center;
+  }
+
+  .Outer-box {
+    background-image: url("Wiki-background.jpg");
+  }

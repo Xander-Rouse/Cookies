@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="mystyle.css">
+    </head>
+    <body>
+        
+        <div class="Outer-box">
+            <div class="flex-container">
+              <div class="Click">
+                <h1>Click the Cookie!</h1>
+                <h1 id="count">0</h1>
+                <img src="Cookie.png" alt="The cookie" onclick=Click()>
+              </div>
+            
+              <div class="Info">
+                <h1>Info</h1>
+                <p id=infotext></p>
+              </div>
+            
+                <div class="Shop">
+                  <h1>Shop</h1>
+                  <Button id=1 onclick=Doubler1()>Buy Double Clicks for 10 Cookies</Button>
+                  <Button id=2 style="display:none;" onclick=Doubler2()>Buy Another Doubler for 20 Cookies</Button>
+                  <Button id=3 onclick=AutoC1()>Buy an Auto Clicker for 15 Cookies</Button>
+                  <Button id=4 style="display:none;" onclick=AutoC2()>Buy another Auto Clicker for 30 Cookies</Button>
+                </div>
+                <div class="Stats">
+                    <h1>Stats</h1>
+                    <p id=ctotal>Total cookie clicks: 0</p>
+                    <p id=btotal>Total upgrades bought: 0</p>
+                  </div>
+            </div>
+        </div>
+        
+        <script>
+            var count = 0;
+            var Clickbonus = 1;
+            var clicktotal = 0;
+            var buytotal = 0;
+            function Click() {
+                var d = new Date();
+                document.getElementById("infotext").innerHTML = d.getHours() + ":" + d.getMinutes() + " " + "You clicked the cookie <br>" + document.getElementById("infotext").innerHTML;
+                count = count + (1 * Clickbonus);
+                document.getElementById("count").innerHTML = count;
+                clicktotal++;
+                document.getElementById("ctotal").innerHTML = "Total cookie clicks: " + clicktotal;
+            }
+            function Doubler1() {
+                var d = new Date();
+                if (count >= 10) {
+                    count -= 10;
+                    document.getElementById("infotext").innerHTML = d.getHours() + ":" + d.getMinutes() + " " + "You bought double clicks <br>" + document.getElementById("infotext").innerHTML;
+                    document.getElementById("count").innerHTML = count
+                    document.getElementById("1").style.display = "none";
+                    document.getElementById("2").style.display = "block";
+                    Clickbonus *= 2
+                    buytotal++;
+                    document.getElementById("btotal").innerHTML = "Total upgrades bought: " + buytotal;
+                }
+            }
+            function Doubler2() {
+                var d = new Date();
+                if (count >= 20) {
+                    count -= 20;
+                    document.getElementById("infotext").innerHTML = d.getHours() + ":" + d.getMinutes() + " " + "You bought your second click doubler <br>" + document.getElementById("infotext").innerHTML;
+                    document.getElementById("count").innerHTML = count
+                    document.getElementById("2").style.display = "none";
+                    Clickbonus *= 2
+                    buytotal++;
+                    document.getElementById("btotal").innerHTML = "Total upgrades bought: " + buytotal;
+                }
+            }
+            function AutoC1() {
+                var d = new Date();
+                if (count >= 15) {
+                    count -= 15;
+                    document.getElementById("infotext").innerHTML = d.getHours() + ":" + d.getMinutes() + " " + "You bought an auto clicker <br>" + document.getElementById("infotext").innerHTML;
+                    document.getElementById("count").innerHTML = count
+                    document.getElementById("3").style.display = "none";
+                    document.getElementById("4").style.display = "block";
+                    Autoclicker = setInterval(Click, 1000);
+                    buytotal++;
+                    document.getElementById("btotal").innerHTML = "Total upgrades bought: " + buytotal;
+                }
+            }
+            function AutoC2() {
+                var d = new Date();
+                if (count >= 30) {
+                    count -= 30;
+                    document.getElementById("infotext").innerHTML = d.getHours() + ":" + d.getMinutes() + " " + "You bought an auto clicker <br>" + document.getElementById("infotext").innerHTML;
+                    document.getElementById("count").innerHTML = count
+                    document.getElementById("4").style.display = "none";
+                    Autoclicker = setInterval(Click, 1000);
+                    buytotal++;
+                    document.getElementById("btotal").innerHTML = "Total upgrades bought: " + buytotal;
+                }
+            }
+        </script>
+
+    </body>
+</html>
